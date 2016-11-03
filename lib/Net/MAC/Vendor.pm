@@ -68,7 +68,7 @@ use Carp;
 use Mojo::URL;
 use Mojo::UserAgent;
 
-our $VERSION = '1.26';
+our $VERSION = '1.27';
 
 =item run( @macs )
 
@@ -471,7 +471,7 @@ sub load_cache {
 	foreach my $entry ( @entries ) {
 		$entry =~ s/^\s+//;
 		my $oui = substr $entry, 0, 8;
-		__PACKAGE__->add_to_cache( parse_oui( $entry ) );
+		__PACKAGE__->add_to_cache( $oui, parse_oui( $entry ) );
 		}
 
 	return 1;
